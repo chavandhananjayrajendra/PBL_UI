@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Service - Customer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            animation: fadeIn 1s;
+            margin: 0;
+            padding: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            margin-top: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .read-only {
+            background-color: #e9ecef;
+            pointer-events: none;
+        }
+
+        .error {
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Booking Service</h2>
+
+    <h3>Sender Information</h3>
+    <label>Name:</label>
+    <input type="text" id="senderName" class="read-only" value="Dhananjay Chavan" readonly>
+    <label>Address:</label>
+    <input type="text" id="senderAddress" class="read-only" value="101/61,BDD Chawl,Worli" readonly>
+    <label>Contact Details:</label>
+    <input type="text" id="senderContact" class="read-only" value="9967210702" readonly>
+
+    <h3>Receiver Information</h3>
+    <label>Name:</label>
+    <input type="text" id="receiverName" required>
+    <label>Address:</label>
+    <input type="text" id="receiverAddress" required>
+    <label>Pin Code:</label>
+    <input type="text" id="receiverPin" required>
+    <label>Contact Details:</label>
+    <input type="text" id="receiverContact" required>
+
+    <h3>Parcel Details</h3>
+    <label>Size and Weight:</label>
+    <input type="text" id="parcelSizeWeight" required>
+    <label>Contents Description:</label>
+    <textarea id="contentsDescription" required></textarea>
+
+    <h3>Shipping Options</h3>
+    <label>Delivery Speed:</label>
+    <select id="deliverySpeed" required>
+        <option value="Standard">Standard</option>
+        <option value="Express">Express</option>
+    </select>
+    <label>Packaging Preferences:</label>
+    <select id="packagingPreference" required>
+        <option value="Standard">Standard Packaging</option>
+        <option value="Custom">Custom Packaging</option>
+        <option value="Eco-Friendly">Eco-friendly Packaging</option>
+        <option value="Fragile">Fragile Item Handling</option>
+    </select>
+
+    <h3>Date and Time Selection</h3>
+    <label>Preferred Pickup/Drop-off Time:</label>
+    <input type="datetime-local" id="pickupDropoffTime" required>
+
+    <h3>Service Cost and Payment</h3>
+    <p id="serviceCost">Estimated Cost: <strong>$50</strong></p>
+
+    <h3>Additional Services</h3>
+    <label><input type="checkbox" id="insurance"> Insurance Options</label>
+    <label><input type="checkbox" id="tracking"> Tracking Services</label>
+
+    <button onclick="bookService()">Book Service</button>
+    <p class="error" id="errorMessage"></p>
+</div>
+
+<script>
+    function bookService() {
+        const receiverName = document.getElementById('receiverName').value;
+        const receiverAddress = document.getElementById('receiverAddress').value;
+        const receiverPin = document.getElementById('receiverPin').value;
+        const receiverContact = document.getElementById('receiverContact').value;
+
+        if (!receiverName || !receiverAddress || !receiverPin || !receiverContact) {
+            document.getElementById('errorMessage').innerText = "Please fill in all receiver details.";
+            document.getElementById('errorMessage').style.display = 'block';
+            return;
+        }
+
+        // Proceed to Payment Page
+        window.location.href = "payment.html"; // Redirect to payment page
+    }
+</script>
+
+</body>
+</html>

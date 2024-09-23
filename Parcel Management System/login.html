@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <div id="errorMessage" class="error"></div>
+    <input type="text" id="userId" placeholder="User ID (5-20 characters)" minlength="5" maxlength="20">
+    <input type="password" id="password" placeholder="Password (1 uppercase, 1 lowercase, 1 special character)" maxlength="30">
+    <button onclick="login()">Login</button>
+    <p>Don't have an account? <a href="register.html">Register here</a></p>
+</div>
+
+<script>
+    function login() {
+        const userId = document.getElementById('userId').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Simple validation logic
+        if (userId.length < 5 || userId.length > 20) {
+            errorMessage.textContent = "User ID must be between 5 and 20 characters.";
+            return;
+        }
+        if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*[\W])/.test(password) || password.length > 30) {
+            errorMessage.textContent = "Password must contain an uppercase letter, a lowercase letter, and a special character.";
+            return;
+        }
+
+        // On successful login, redirect (pseudo-code)
+        window.location.href = "dashboard.html"; // Change to officer homepage if needed
+    }
+</script>
+
+</body>
+</html>

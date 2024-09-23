@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Officer Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            animation: fadeIn 1s;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+            margin-top: 100px;
+            text-align: center;
+            animation: slideIn 0.5s;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Officer Login</h2>
+    <input type="text" id="userId" placeholder="User ID (5-20 characters)" minlength="5" maxlength="20">
+    <input type="password" id="password" placeholder="Password (Max 30 chars, 1 upper, 1 lower, 1 special)" maxlength="30">
+    <button onclick="login()">Login</button>
+    <div class="error" id="errorMessage"></div>
+</div>
+
+<script>
+    function login() {
+        const userId = document.getElementById('userId').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Clear previous error message
+        errorMessage.style.display = 'none';
+
+        // Validate User ID
+        if (userId.length < 5 || userId.length > 20) {
+            errorMessage.innerText = "User ID must be between 5 and 20 characters.";
+            errorMessage.style.display = 'block';
+            return;
+        }
+
+        // Validate Password
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,30}$/;
+        if (!passwordPattern.test(password)) {
+            errorMessage.innerText = "Password must be 8-30 characters long with at least one uppercase letter, one lowercase letter, and one special character.";
+            errorMessage.style.display = 'block';
+            return;
+        }
+
+        // If validation passes, simulate successful login
+        // Redirect to Officer dashboard (replace 'officer_dashboard.html' with the actual URL)
+        window.location.href = 'officer_dashboard.html';
+    }
+</script>
+
+</body>
+</html>

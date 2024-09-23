@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            animation: fadeIn 1s;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .success {
+            color: green;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Register</h2>
+    <input type="text" id="customerName" placeholder="Customer Name" maxlength="50" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <select id="countryCode">
+        
+        <option value="+91">+91 (India)</option>
+        <!-- Add more country codes as needed -->
+    </select>
+    <input type="text" id="mobileNumber" placeholder="Mobile Number (10 digits)" maxlength="10" required>
+    <input type="text" id="address" placeholder="Address" required>
+    <input type="text" id="userIdReg" placeholder="User ID" minlength="5" maxlength="20" required>
+    <input type="password" id="passwordReg" placeholder="Password" maxlength="30" required>
+    <input type="password" id="confirmPassword" placeholder="Confirm Password" maxlength="30" required>
+    <button onclick="register()">Register</button>
+    <p class="success" id="successMessage">Consumer Registration successful.</p>
+</div>
+
+<script>
+    function register() {
+        const password = document.getElementById('passwordReg').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+        const successMessage = document.getElementById('successMessage');
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            return;
+        }
+
+        // Simulate registration success
+        successMessage.style.display = 'block';
+        setTimeout(() => {
+            window.location.href = "login.html"; // Redirect to login page
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>

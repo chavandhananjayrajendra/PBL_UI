@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            animation: fadeIn 1s;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .invoice-detail {
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Invoice</h2>
+    <div class="invoice-detail">Receiver Name: <strong>Jane Smith</strong></div>
+    <div class="invoice-detail">Receiver Address: <strong>456 Elm St, City</strong></div>
+    <div class="invoice-detail">Receiver Pin: <strong>123456</strong></div>
+    <div class="invoice-detail">Receiver Mobile: <strong>9876543210</strong></div>
+    <div class="invoice-detail">Parcel Weight: <strong>2kg</strong></div>
+    <div class="invoice-detail">Parcel Contents: <strong>Books</strong></div>
+    <div class="invoice-detail">Delivery Type: <strong>Standard</strong></div>
+    <div class="invoice-detail">Packaging Preference: <strong>Standard Packaging</strong></div>
+    <div class="invoice-detail">Pickup Time: <strong>2024-01-01T10:00</strong></div>
+    <div class="invoice-detail">Dropoff Time: <strong>2024-01-01T12:00</strong></div>
+    <div class="invoice-detail">Service Cost: <strong>$50</strong></div>
+    <div class="invoice-detail">Payment Time: <strong>2024-01-01 09:00</strong></div>
+
+    <button onclick="window.print()">Print Invoice</button>
+</div>
+
+</body>
+</html>

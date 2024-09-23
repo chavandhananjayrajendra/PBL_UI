@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Officer Booking History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            animation: fadeIn 1s;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .pagination button {
+            margin: 0 5px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .pagination button:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .welcome {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="welcome">Welcome, <span id="username">Officer</span></div>
+    <a href="#" onclick="logout()">Logout</a>
+</div>
+
+<h2>Officer Booking History</h2>
+
+<div style="text-align: center; margin-bottom: 20px;">
+    <input type="text" id="customerId" placeholder="Customer ID">
+    <input type="date" id="startDate">
+    <input type="date" id="endDate">
+    <button onclick="filterBookings()">Filter</button>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Customer ID</th>
+            <th>Booking ID</th>
+            <th>Booking Date</th>
+            <th>Receiver Name</th>
+            <th>Delivered Address</th>
+            <th>Amount</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody id="bookingHistory">
+        <!-- Booking records will be populated here -->
+    </tbody>
+</table>
+
+<div class="pagination">
+    <button onclick="previousPage()">Previous</button>
+    <button onclick="nextPage()">Next</button>
+</div>
+
+<script>
+    const bookings = [
+        { customerId: 'C001', bookingId: 'B001', bookingDate: '2024-01-01', receiverName: 'John Doe', deliveredAddress: '123 Main St', amount: '$50', status: 'Delivered' },
+        // Add more booking entries here for testing
+    ];
+
+    let currentPage = 1;
+    const recordsPerPage = 5;
+
+    function displayBookings() {
+        const tbody = document.getElementById('bookingHistory');
+        tbody.innerHTML = ''; // Clear existing entries
+
+        const startIndex = (currentPage - 1) * recordsPerPage;
+        const endIndex = startIndex + recordsPerPage;
+        const paginatedBookings = bookings.slice(startIndex, endIndex);
+
+        paginatedBookings.forEach(booking => {
+            const row = `<tr>
+                <td>${booking.customerId}</td>
+                <td>${booking.bookingId}</td>
+                <td>${booking.bookingDate}</td>
+                <td>${booking.receiverName}</td>
+                <td>${booking.deliveredAddress}</td>
+                <td>${booking.amount}</td>
+                <td>${booking.status}</td>
+            </tr>`;
+            tbody.innerHTML += row;
+        });
+    }
+
+    function filterBookings() {
+        // Logic for filtering bookings by customer ID and date range goes here
+        alert("Filtering bookings (logic to be implemented).");
+    }
+
+    function previousPage() {
+        if (currentPage > 1) {
+            currentPage--;
+            displayBookings();
+        }
+    }
+
+    function nextPage() {
+        if ((currentPage * recordsPerPage) < bookings.length) {
+            currentPage++;
+            displayBookings();
+        }
+    }
+
+    function logout() {
+        // Logic to clear user session can go here
+        alert("Logging out...");
+        window.location.href = 'login.html'; // Redirect to login page
+    }
+
+    // Initial display of bookings
+    displayBookings();
+</script>
+
+</body>
+</html>

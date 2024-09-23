@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Homepage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            animation: fadeIn 1s;
+        }
+
+        nav {
+            background-color: #007BFF;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #e0e0e0;
+        }
+
+        h2 {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .welcome {
+            text-align: right;
+            margin: 20px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .menu button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .menu button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <span class="welcome">Welcome, <span id="username">Customer</span></span>
+    <div>
+        <a href="login.html" onclick="logout()">Logout</a>
+    </div>
+</nav>
+
+<h2>Customer Dashboard</h2>
+
+<div class="menu">
+    <button onclick="window.location.href='customer_booking.html'">Booking Service</button>
+    <button onclick="window.location.href='tracking_status_customer.html'">Tracking</button>
+    <button onclick="window.location.href='customer_booking_history.html'">Previous Booking</button>
+    <button onclick="window.location.href='customer_support.html'">Contact Support</button>
+</div>
+
+<script>
+    function logout() {
+        // Clear user details if needed
+    }
+</script>
+
+</body>
+</html>

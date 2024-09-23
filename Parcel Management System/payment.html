@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            animation: fadeIn 1s;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            margin-top: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Payment Page</h2>
+    <p id="welcomeMessage">Welcome, <span id="username">Customer</span></p>
+
+    <label>Bill Amount:</label>
+    <input type="text" id="billAmount" value="$50" readonly>
+
+    <label>Mode of Payment:</label>
+    <select id="paymentMethod" required>
+        <option value="Debit">Debit</option>
+        <option value="Credit">Credit</option>
+    </select>
+
+    <button onclick="goToCardDetails()">Pay Now</button>
+    <button onclick="window.location.href='booking_service.html'">Back to Home</button>
+</div>
+
+<script>
+    function goToCardDetails() {
+        window.location.href = "card_details.html"; // Redirect to card details page
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Officer Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            animation: fadeIn 1s;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+            border-radius: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .welcome {
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="welcome">Welcome, <span id="username">Officer</span></div>
+    <div>
+        <a href="#" onclick="navigateTo('home.html')">Home</a>
+        <a href="#" onclick="navigateTo('tracking_status_officer.html')">Tracking</a>
+        <a href="#" onclick="navigateTo('delivery_update.html')">Delivery Status</a>
+        <a href="#" onclick="navigateTo('pickup_scheduling_officer.html')">Pickup Scheduling</a>
+        <a href="#" onclick="navigateTo('previous_booking.html')">Previous Booking</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+</div>
+
+<h2>Officer Home Page</h2>
+<p>Here you can manage your tasks and monitor parcel deliveries.</p>
+
+<script>
+    // Replace with actual username from the session or database
+    document.getElementById('username').innerText = 'Officer Name';
+
+    function navigateTo(page) {
+        // Replace with actual navigation logic
+        window.location.href = page;
+    }
+
+    function logout() {
+        // Logic to clear user session can go here
+        alert("Logging out...");
+        window.location.href = 'login.html'; // Redirect to login page
+    }
+</script>
+
+</body>
+</html>
